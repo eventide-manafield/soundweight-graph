@@ -1,0 +1,22 @@
+{
+  "output": "download-cache.zip",
+  "bytes": 2210375345,
+  "sha256": "F89C6C43969D92C8B95CB459A90FBAFBC743D3D3CC4D16C610317F9CEEF922F8",
+  "parts": [
+    {
+      "name": "ffmpeg-dependency-sources.zip.001",
+      "bytes": 1073741824,
+      "sha256": "8B6A2B9635E0DD33DE1F89D505DA90F83EE5093FE3546C067DAA4EA43932A648"
+    },
+    {
+      "name": "ffmpeg-dependency-sources.zip.002",
+      "bytes": 1073741824,
+      "sha256": "93668DBA4316FE3DDF9E1329582194C2A38D777C61D1FD0865EB75EF0392930B"
+    },
+    {
+      "name": "ffmpeg-dependency-sources.zip.003",
+      "bytes": 62891697,
+      "sha256": "9CCE22BA8FDA8B588F3BC9C5CCFA0B91E7A8B47475DE38FEEF7B4797AB105997"
+    }
+  ]
+}

@@ -878,7 +878,9 @@
       "vulkan",
       "zlib"
     ],
-    "correspondingSourceBundleComplete": false
+    "correspondingSourceBundleComplete": true,
+    "sourceArchiveSha256": "F89C6C43969D92C8B95CB459A90FBAFBC743D3D3CC4D16C610317F9CEEF922F8",
+    "sourceRelease": "https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.1.0"
   },
-  "publicRedistributionCleared": false
+  "scope": "Inventory and collected notices; not a legal certification."
 }

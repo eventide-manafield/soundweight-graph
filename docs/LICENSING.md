@@ -31,48 +31,40 @@ NOTICE는 라이선스가 허용하는 고지 파일·소스/문서·화면 등�
 | .NET Core runtime 10.0.11 | 패키지 LICENSE 및 THIRD-PARTY-NOTICES 확보 |
 | Windows Desktop runtime | 현재 deps의 실제 런타임 팩 버전은 **10.0.3**. 패키지 LICENSE 확보 |
 | Windows SDK .NET Ref 10.0.19041.57 | 패키지가 가리키는 Microsoft Windows SDK 약관 RTF와 읽기용 텍스트 확보. MIT로 일괄 표기하지 않음 |
-| FFmpeg / ffprobe | LGPL-3.0-or-later, LGPLv3와 그에 포함되는 GPLv3 전문 확보. 대응 소스 묶음은 아직 미완료 |
+| FFmpeg / ffprobe | LGPL-3.0-or-later, LGPLv3와 그에 포함되는 GPLv3 전문 확보. 정확한 소스·빌드 레시피·검증한 의존성 캐시 및 고지 묶음 제공 |
 
 `runtimeconfig.json`의 Windows Desktop 버전 표기와 실제 deps 런타임 팩 버전이 다르다.
 `Environment.Version=10.0.11` 확인만으로 모든 데스크톱 네이티브 구성요소가 10.0.11이라고 판단하지 않는다.
 차후 런타임 정리 시 deps, 실제 번들 파일 버전, 라이선스 목록을 함께 갱신해야 한다.
 
-## FFmpeg에서 남은 작업
+## FFmpeg 소스 및 배포 자료
 
-현재 바이너리는 BtbN의 `n8.1.3-23-g5c4f5744cd-20261022` Windows x64 정적 LGPL 빌드다.
-configure 기록에 `--enable-version3`가 있고 `--enable-gpl` / `--enable-nonfree`는 없다.
-FFmpeg 자체 출력은 LGPL 3 또는 이후 버전을 명시한다.
-앱은 FFmpeg를 별도 프로세스로 실행하며 libav 라이브러리에 직접 링크하지 않는다.
-**이 구분은 앱의 라이선스 판단에 중요하지만, 포함한 FFmpeg 실행 파일의 재배포 조건을 없애지는 않는다.**
+내장 도구는 BtbN의 수정하지 않은 `n8.1.3-23-g5c4f5744cd-20261022` Windows x64 정적 LGPL 빌드다.
+`--enable-version3`가 있고 `--enable-gpl` / `--enable-nonfree`는 없다. 앱은 별도 프로세스로 실행한다.
+FFmpeg 소스, 정확한 빌드 레시피, 해당 빌드 실행의 전체 의존성 소스 캐시를 확보하고 원본 SHA-256을 검증했다.
+129개 소스 아카이브에서 551개 고유 라이선스/저작권 텍스트를 수집했다. nv-codec-headers는 각 헤더의 원문 고지를 포함한다.
+캐시에는 다른 플랫폼·빌드 변형과 빌드 도구도 들어 있으므로, 고지 전체가 이 Windows 실행 파일의 링크 라이브러리 목록을 뜻하지는 않는다.
+`libdrm`은 현재 configure에서 비활성화되어 있으며 원본 소스는 캐시에 보존한다.
 
-공개 실행 파일 배포 전에 다음을 해결한다.
+[소스 보관 및 재빌드 안내](FFMPEG_SOURCE_STATUS.md)와 [캐시 목록](ffmpeg-source-cache-inventory.json)에 경로와 해시를 기록한다.
+같은 [v0.1.0 릴리스](https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.1.0)에 소스 키트와 캐시 3개 분할 파일을 제공한다.
+원문 파일과 경로는 소스 키트의 `ffmpeg-dependency-notices.zip`으로 보존한다. 소스 자료는 EXE 안에 넣지 않는다.
 
-1. 실제 바이너리에 대응하는 FFmpeg 소스, 패치, 빌드 설정 및 필요한 정적 링크 의존성 소스를 확보한다.
-2. 해당 소스로 빌드할 수 있는 스크립트와 버전 정보를 함께 보관하고, 추가 라이선스·고지·재링크 관련 조건을 각 구성요소에 맞게 확인한다.
-3. 바이너리 배포 페이지에서 대응 소스를 받을 수 있는 실제 경로를 제공하고 유지한다. upstream 홈페이지나 커밋 링크만으로 완료 처리하지 않는다.
-4. 각 정적 링크 라이브러리의 라이선스 원문과 배포 조건을 조사한다. configure 옵션 목록은 실제 포함 코드의 완전한 목록이 아니다.
-5. 변경본 도구 사용 경로는 구현했다. `SOUNDWEIGHTGRAPH_FFMPEG_DIR`에 절대 경로를 지정하면 그 폴더의 ffmpeg.exe와 ffprobe.exe를 덮어쓰지 않고 사용한다. 기본 내장 도구의 무결성 검증은 유지한다. 대응 소스 및 정적 링크 구성요소의 조건 충족은 별도 확인 항목이다.
+`SOUNDWEIGHTGRAPH_FFMPEG_DIR`에 절대 경로를 지정하면 수정한 ffmpeg.exe와 ffprobe.exe를 덮어쓰지 않고 사용한다.
+파일이 빠지면 오류를 표시하며 기본 내장 도구의 무결성 검사는 유지한다.
+고지와 소스의 수집·검증을 수행했으며, FFmpeg의 전체 재빌드나 비트 단위 재현성 검증은 수행하지 않았다.
+참고: [FFmpeg 재배포 안내](https://ffmpeg.org/legal.html), [LGPLv3 원문](licenses/upstream/FFmpeg-COPYING.LGPLv3.txt).
 
-이번에 확인한 소스 식별자:
+## Microsoft SDK 및 고지 전달
 
-- FFmpeg: `5c4f5744cd60943125a78db692b728210102f255`
-- BtbN 날짜 태그의 빌드 레시피: `937868360a21d711ec94a33f5591d345ad9b7754`
+공식 [REDIST 목록](https://learn.microsoft.com/en-us/legal/windows-sdk/redist)의 Microsoft.Windows.SDK.NET.Ref에
+`lib/net8.0/Microsoft.Windows.SDK.NET.dll`과 `WinRT.Runtime.dll`이 명시되어 있다.
+현재 두 배포 DLL은 NuGet 원본과 SHA-256이 같다. [검증 기록](windows-sdk-redist-verification.json)을 보존한다.
 
-이는 확보해야 할 소스를 식별하기 위한 정보이며 완전한 대응 소스 아카이브가 아니다.
-빌드 레시피의 외부 Git 분기/태그가 가리켰던 실제 버전까지 확인해야 한다.
-필요 없는 라이브러리가 적은 전용 FFmpeg 빌드를 만드는 방법도 있지만, 현재 바이너리를 조용히 교체하지 않았다.
-참고: [FFmpeg 재배포 안내](https://ffmpeg.org/legal.html), [GPLv3 제6조](https://opensource.org/license/gpl-3.0),
-[LGPLv3 원문](licenses/upstream/FFmpeg-COPYING.LGPLv3.txt).
-
-## 기타 배포 확인
-
-- Windows SDK 파일 매핑 확인 완료: [Microsoft 공식 REDIST 목록](https://learn.microsoft.com/en-us/legal/windows-sdk/redist)의 Microsoft.Windows.SDK.NET.Ref 항목에 lib/net8.0의 `Microsoft.Windows.SDK.NET.dll` 및 `WinRT.Runtime.dll`이 명시되어 있다. 현재 패키지와 배포 출력의 두 파일 SHA-256을 대조한다.
-- SDK 약관 2.a.ii에는 외부 최종 사용자/배포자에게 Microsoft를 보호하는 조건에 동의하도록 하는 요구가 있다. 재배포 가능 파일 확인과 최종 배포 약관 적용은 별개이며, 공개 배포 전 적용 방식을 확정해야 한다. Apache-2.0을 Microsoft DLL에 대신 적용하지 않는다.
-- 원본 BtbN 아카이브와 소스 제공 경로를 별도로 보존한다. 날짜 태그는 영구 보존을 보장하지 않는다.
-- 프로젝트 LICENSE·NOTICE와 외부 고지는 빌드 시 앱의 ‘오픈소스 고지’ 리소스에 포함된다.
-- 저장소에 소스를 공개하는 것과 외부 바이너리를 포함한 EXE를 공개 배포하는 것을 분리해 판단한다.
-
-현재 판정: **프로젝트 라이선스 적용·고지 수집은 완료, 공개 바이너리 재배포 점검은 미완료**.
+Microsoft SDK 약관은 해당 구성요소에 그대로 적용한다. [외부 구성요소 이용 조건](../THIRD_PARTY_TERMS.md)에 범위와
+최종 사용자/배포자 조건을 명시하고 릴리스 다운로드 페이지에서 안내한다. 앱 코드의 Apache-2.0 권한은 추가 제한하지 않는다.
+프로젝트 LICENSE·NOTICE, Microsoft 원문 및 외부 고지 전문은 앱의 **오픈소스 고지**에도 내장한다.
+이 기록은 수집·확인한 배포 자료를 설명하며 법률 검토 인증을 의미하지 않는다.
 
 ## 다시 수집하기
 
