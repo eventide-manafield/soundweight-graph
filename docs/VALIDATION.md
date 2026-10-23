@@ -117,3 +117,9 @@ v0.1.0은 아래 확인된 범위로 제공한다. 위 환경·성능 항목의 
 - 종속 라이브러리와 내장 FFmpeg 버전은 v0.1.0과 동일하며 27개 원문 고지 해시를 재검증했다.
 - 원본 결과: `artifacts/test-results/release-0.2.0.trx`, `artifacts/release-0.2.0-smoke.json`, `artifacts/release-0.2.0-smoke.png`.
 - 최종 EXE: `artifacts/release-0.2.0/SoundWeightGraph.exe`. 해시/크기는 `artifacts/release-manifest.json` 및 릴리스 `SHA256SUMS.txt`에 기록한다.
+
+## v0.2.0 제목 패치
+
+- 그래프 제목을 `소리 밀도 점수`로 변경하고 바로 아래 부제목을 제거했다.
+- 점수 계산 변경 없이 v0.2.0의 실행 파일과 체크섬을 교체한다. README 미리보기도 새 화면으로 갱신했다.
+- 빌드 경고 0, 오류 0 및 기존 GUI 검사 통과. 결과: `artifacts/score-title-smoke.json`.

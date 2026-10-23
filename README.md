@@ -9,7 +9,7 @@ SoundWeight Graph는 MP4의 여러 오디오 트랙을 분석해 가장 활발�
 > 프로그램 표시 이름은 SoundWeight Graph, 실행 파일은 SoundWeightGraph.exe입니다.
 > v0.2.0부터 트랙 영향력 강조를 사용할 수 있습니다.
 
-![멀티트랙 오디오의 하이라이트 후보 점수 그래프](docs/assets/preview.png)
+![멀티트랙 오디오의 소리 밀도 점수 그래프](docs/assets/preview.png)
 
 ## 어떤 도구인가요?
 
