@@ -1,0 +1,16 @@
+SoundWeight Graph
+Copyright 2026 eventide-manafield
+
+Original project:
+https://github.com/eventide-manafield/soundweight-graph
+
+Project-owned code is licensed under the Apache License, Version 2.0.
+See LICENSE for the license text.
+
+This product includes third-party software, including FFmpeg, ScottPlot,
+SkiaSharp, HarfBuzz, OpenTK, GLFW and Microsoft runtime components.
+Third-party copyright and license notices are provided in
+docs/THIRD_PARTY_NOTICES.md and docs/licenses/.
+Those components retain their respective licenses.
+
+This NOTICE is informational and does not modify the Apache License.

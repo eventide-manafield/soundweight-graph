@@ -1,0 +1,884 @@
+{
+  "schemaVersion": 1,
+  "inspectedDate": "2026-10-23",
+  "depsSha256": "EB4B1744DE0CBDFAE8ED21B1D0B3D5E9D4E7B07A5F5D6B0228852C546977E73B",
+  "lockSha256": "367122CF9BAF88069BB2B310E489056E304437FDFA2806035E7A29E32D527829",
+  "packages": [
+    {
+      "package": "HarfBuzzSharp",
+      "version": "8.3.1.1",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/net8.0-windows10.0.19041/HarfBuzzSharp.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/HarfBuzzSharp-8.3.1.1/LICENSE.txt"
+      ],
+      "lockContentHash": "tLZN66oe/uiRPTZfrCU4i8ScVGwqHNh5MHrXj0yVf4l7Mz0FhTGnQ71RGySROTmdognAs0JtluHkL41pIabWuQ==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "HarfBuzzSharp.NativeAssets.Linux",
+      "version": "8.3.1.1",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [],
+      "scope": "restore-only",
+      "notices": [
+        "licenses/packages/HarfBuzzSharp.NativeAssets.Linux-8.3.1.1/LICENSE.txt",
+        "licenses/packages/HarfBuzzSharp.NativeAssets.Linux-8.3.1.1/THIRD-PARTY-NOTICES.txt"
+      ],
+      "lockContentHash": "3EZ1mpIiKWRLL5hUYA82ZHteeDIVaEA/Z0rA/wU6tjx6crcAkJnBPwDXZugBSfo8+J3EznvRJf49uMsqYfKrHg==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "HarfBuzzSharp.NativeAssets.Win32",
+      "version": "8.3.1.1",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "runtimes/win-x64/native/libHarfBuzzSharp.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/HarfBuzzSharp.NativeAssets.Win32-8.3.1.1/LICENSE.txt",
+        "licenses/packages/HarfBuzzSharp.NativeAssets.Win32-8.3.1.1/THIRD-PARTY-NOTICES.txt"
+      ],
+      "lockContentHash": "UsJtQsfAJoFDZrXc4hCUfRPMqccfKZ0iumJ/upcUjz/cmsTgVFGNEL5yaJWmkqsuFYdMWbj/En5/kS4PFl9hBA==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "Microsoft.NET.ILLink.Tasks",
+      "version": "10.0.3",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [],
+      "scope": "restore-only",
+      "notices": [
+        "licenses/packages/Microsoft.NET.ILLink.Tasks-10.0.3/THIRD-PARTY-NOTICES.TXT"
+      ],
+      "lockContentHash": "0B6nZyCHWXnvmlB559oduOspVdNOnpNXPjhpWVMovLPAsDVG7A4jJR9rzECf67JUzxP8/ee/wA8clwIzJcWNFA==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/dotnet/dotnet",
+        "commit": "c2435c3e0f46de784341ac3ed62863ce77e117b4"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "Microsoft.NETCore.App.Runtime.win-x64",
+      "version": "10.0.11",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "Microsoft.CSharp.dll",
+        "Microsoft.DiaSymReader.Native.amd64.dll",
+        "Microsoft.VisualBasic.Core.dll",
+        "Microsoft.VisualBasic.dll",
+        "Microsoft.Win32.Primitives.dll",
+        "Microsoft.Win32.Registry.dll",
+        "System.AppContext.dll",
+        "System.Buffers.dll",
+        "System.Collections.Concurrent.dll",
+        "System.Collections.Immutable.dll",
+        "System.Collections.NonGeneric.dll",
+        "System.Collections.Specialized.dll",
+        "System.Collections.dll",
+        "System.ComponentModel.Annotations.dll",
+        "System.ComponentModel.DataAnnotations.dll",
+        "System.ComponentModel.EventBasedAsync.dll",
+        "System.ComponentModel.Primitives.dll",
+        "System.ComponentModel.TypeConverter.dll",
+        "System.ComponentModel.dll",
+        "System.Configuration.dll",
+        "System.Console.dll",
+        "System.Core.dll",
+        "System.Data.Common.dll",
+        "System.Data.DataSetExtensions.dll",
+        "System.Data.dll",
+        "System.Diagnostics.Contracts.dll",
+        "System.Diagnostics.Debug.dll",
+        "System.Diagnostics.DiagnosticSource.dll",
+        "System.Diagnostics.FileVersionInfo.dll",
+        "System.Diagnostics.Process.dll",
+        "System.Diagnostics.StackTrace.dll",
+        "System.Diagnostics.TextWriterTraceListener.dll",
+        "System.Diagnostics.Tools.dll",
+        "System.Diagnostics.TraceSource.dll",
+        "System.Diagnostics.Tracing.dll",
+        "System.Drawing.Primitives.dll",
+        "System.Drawing.dll",
+        "System.Dynamic.Runtime.dll",
+        "System.Formats.Asn1.dll",
+        "System.Formats.Tar.dll",
+        "System.Globalization.Calendars.dll",
+        "System.Globalization.Extensions.dll",
+        "System.Globalization.dll",
+        "System.IO.Compression.Brotli.dll",
+        "System.IO.Compression.FileSystem.dll",
+        "System.IO.Compression.Native.dll",
+        "System.IO.Compression.ZipFile.dll",
+        "System.IO.Compression.dll",
+        "System.IO.FileSystem.AccessControl.dll",
+        "System.IO.FileSystem.DriveInfo.dll",
+        "System.IO.FileSystem.Primitives.dll",
+        "System.IO.FileSystem.Watcher.dll",
+        "System.IO.FileSystem.dll",
+        "System.IO.IsolatedStorage.dll",
+        "System.IO.MemoryMappedFiles.dll",
+        "System.IO.Pipelines.dll",
+        "System.IO.Pipes.AccessControl.dll",
+        "System.IO.Pipes.dll",
+        "System.IO.UnmanagedMemoryStream.dll",
+        "System.IO.dll",
+        "System.Linq.AsyncEnumerable.dll",
+        "System.Linq.Expressions.dll",
+        "System.Linq.Parallel.dll",
+        "System.Linq.Queryable.dll",
+        "System.Linq.dll",
+        "System.Memory.dll",
+        "System.Net.Http.Json.dll",
+        "System.Net.Http.dll",
+        "System.Net.HttpListener.dll",
+        "System.Net.Mail.dll",
+        "System.Net.NameResolution.dll",
+        "System.Net.NetworkInformation.dll",
+        "System.Net.Ping.dll",
+        "System.Net.Primitives.dll",
+        "System.Net.Quic.dll",
+        "System.Net.Requests.dll",
+        "System.Net.Security.dll",
+        "System.Net.ServerSentEvents.dll",
+        "System.Net.ServicePoint.dll",
+        "System.Net.Sockets.dll",
+        "System.Net.WebClient.dll",
+        "System.Net.WebHeaderCollection.dll",
+        "System.Net.WebProxy.dll",
+        "System.Net.WebSockets.Client.dll",
+        "System.Net.WebSockets.dll",
+        "System.Net.dll",
+        "System.Numerics.Vectors.dll",
+        "System.Numerics.dll",
+        "System.ObjectModel.dll",
+        "System.Private.CoreLib.dll",
+        "System.Private.DataContractSerialization.dll",
+        "System.Private.Uri.dll",
+        "System.Private.Xml.Linq.dll",
+        "System.Private.Xml.dll",
+        "System.Reflection.DispatchProxy.dll",
+        "System.Reflection.Emit.ILGeneration.dll",
+        "System.Reflection.Emit.Lightweight.dll",
+        "System.Reflection.Emit.dll",
+        "System.Reflection.Extensions.dll",
+        "System.Reflection.Metadata.dll",
+        "System.Reflection.Primitives.dll",
+        "System.Reflection.TypeExtensions.dll",
+        "System.Reflection.dll",
+        "System.Resources.Reader.dll",
+        "System.Resources.ResourceManager.dll",
+        "System.Resources.Writer.dll",
+        "System.Runtime.CompilerServices.Unsafe.dll",
+        "System.Runtime.CompilerServices.VisualC.dll",
+        "System.Runtime.Extensions.dll",
+        "System.Runtime.Handles.dll",
+        "System.Runtime.InteropServices.JavaScript.dll",
+        "System.Runtime.InteropServices.RuntimeInformation.dll",
+        "System.Runtime.InteropServices.dll",
+        "System.Runtime.Intrinsics.dll",
+        "System.Runtime.Loader.dll",
+        "System.Runtime.Numerics.dll",
+        "System.Runtime.Serialization.Formatters.dll",
+        "System.Runtime.Serialization.Json.dll",
+        "System.Runtime.Serialization.Primitives.dll",
+        "System.Runtime.Serialization.Xml.dll",
+        "System.Runtime.Serialization.dll",
+        "System.Runtime.dll",
+        "System.Security.AccessControl.dll",
+        "System.Security.Claims.dll",
+        "System.Security.Cryptography.Algorithms.dll",
+        "System.Security.Cryptography.Cng.dll",
+        "System.Security.Cryptography.Csp.dll",
+        "System.Security.Cryptography.Encoding.dll",
+        "System.Security.Cryptography.OpenSsl.dll",
+        "System.Security.Cryptography.Primitives.dll",
+        "System.Security.Cryptography.X509Certificates.dll",
+        "System.Security.Cryptography.dll",
+        "System.Security.Principal.Windows.dll",
+        "System.Security.Principal.dll",
+        "System.Security.SecureString.dll",
+        "System.Security.dll",
+        "System.ServiceModel.Web.dll",
+        "System.ServiceProcess.dll",
+        "System.Text.Encoding.CodePages.dll",
+        "System.Text.Encoding.Extensions.dll",
+        "System.Text.Encoding.dll",
+        "System.Text.Encodings.Web.dll",
+        "System.Text.Json.dll",
+        "System.Text.RegularExpressions.dll",
+        "System.Threading.AccessControl.dll",
+        "System.Threading.Channels.dll",
+        "System.Threading.Overlapped.dll",
+        "System.Threading.Tasks.Dataflow.dll",
+        "System.Threading.Tasks.Extensions.dll",
+        "System.Threading.Tasks.Parallel.dll",
+        "System.Threading.Tasks.dll",
+        "System.Threading.Thread.dll",
+        "System.Threading.ThreadPool.dll",
+        "System.Threading.Timer.dll",
+        "System.Threading.dll",
+        "System.Transactions.Local.dll",
+        "System.Transactions.dll",
+        "System.ValueTuple.dll",
+        "System.Web.HttpUtility.dll",
+        "System.Web.dll",
+        "System.Windows.dll",
+        "System.Xml.Linq.dll",
+        "System.Xml.ReaderWriter.dll",
+        "System.Xml.Serialization.dll",
+        "System.Xml.XDocument.dll",
+        "System.Xml.XPath.XDocument.dll",
+        "System.Xml.XPath.dll",
+        "System.Xml.XmlDocument.dll",
+        "System.Xml.XmlSerializer.dll",
+        "System.Xml.dll",
+        "System.dll",
+        "clretwrc.dll",
+        "clrgc.dll",
+        "clrgcexp.dll",
+        "clrjit.dll",
+        "coreclr.dll",
+        "createdump.exe",
+        "hostfxr.dll",
+        "hostpolicy.dll",
+        "mscordaccore.dll",
+        "mscordaccore_amd64_amd64_10.0.1126.37416.dll",
+        "mscordbi.dll",
+        "mscorlib.dll",
+        "mscorrc.dll",
+        "msquic.dll",
+        "netstandard.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/Microsoft.NETCore.App.Runtime.win-x64-10.0.11/LICENSE.TXT",
+        "licenses/packages/Microsoft.NETCore.App.Runtime.win-x64-10.0.11/THIRD-PARTY-NOTICES.TXT"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/dotnet/dotnet",
+        "commit": "e2f47b0110ed922f21a1522da67279133ce28f32"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "Microsoft.Windows.SDK.NET.Ref",
+      "version": "10.0.19041.57",
+      "license": "Microsoft Windows SDK terms (not MIT)",
+      "licenseType": null,
+      "shippedAssets": [
+        "Microsoft.Windows.SDK.NET.dll",
+        "WinRT.Runtime.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/WindowsSDK-license.rtf",
+        "licenses/upstream/WindowsSDK-license.txt"
+      ],
+      "repository": null,
+      "licenseUrl": "https://aka.ms/WinSDKLicenseURL",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+      "version": "10.0.3",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "Accessibility.dll",
+        "D3DCompiler_47_cor3.dll",
+        "DirectWriteForwarder.dll",
+        "Microsoft.Win32.Registry.AccessControl.dll",
+        "Microsoft.Win32.SystemEvents.dll",
+        "PenImc_cor3.dll",
+        "PresentationCore.dll",
+        "PresentationFramework-SystemCore.dll",
+        "PresentationFramework-SystemData.dll",
+        "PresentationFramework-SystemDrawing.dll",
+        "PresentationFramework-SystemXml.dll",
+        "PresentationFramework-SystemXmlLinq.dll",
+        "PresentationFramework.Aero.dll",
+        "PresentationFramework.Aero2.dll",
+        "PresentationFramework.AeroLite.dll",
+        "PresentationFramework.Classic.dll",
+        "PresentationFramework.Fluent.dll",
+        "PresentationFramework.Luna.dll",
+        "PresentationFramework.Royale.dll",
+        "PresentationFramework.dll",
+        "PresentationNative_cor3.dll",
+        "PresentationUI.dll",
+        "ReachFramework.dll",
+        "System.CodeDom.dll",
+        "System.Configuration.ConfigurationManager.dll",
+        "System.Diagnostics.EventLog.Messages.dll",
+        "System.Diagnostics.EventLog.dll",
+        "System.Diagnostics.PerformanceCounter.dll",
+        "System.DirectoryServices.dll",
+        "System.Drawing.Common.dll",
+        "System.Formats.Nrbf.dll",
+        "System.IO.Packaging.dll",
+        "System.Printing.dll",
+        "System.Private.Windows.Core.dll",
+        "System.Private.Windows.GdiPlus.dll",
+        "System.Resources.Extensions.dll",
+        "System.Security.Cryptography.Pkcs.dll",
+        "System.Security.Cryptography.ProtectedData.dll",
+        "System.Security.Cryptography.Xml.dll",
+        "System.Security.Permissions.dll",
+        "System.Windows.Controls.Ribbon.dll",
+        "System.Windows.Extensions.dll",
+        "System.Windows.Input.Manipulations.dll",
+        "System.Windows.Presentation.dll",
+        "System.Windows.Primitives.dll",
+        "System.Xaml.dll",
+        "UIAutomationClient.dll",
+        "UIAutomationClientSideProviders.dll",
+        "UIAutomationProvider.dll",
+        "UIAutomationTypes.dll",
+        "WindowsBase.dll",
+        "vcruntime140_cor3.dll",
+        "wpfgfx_cor3.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/Microsoft.WindowsDesktop.App.Runtime.win-x64-10.0.3/LICENSE"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/dotnet/dotnet",
+        "commit": "c2435c3e0f46de784341ac3ed62863ce77e117b4"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [],
+      "scope": "restore-only",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "fp9ZI6akO4ZuIGzuUE0QRU5zRJhXbSXa5racehFoTdvodhRDecXCOcH68mRsZaMwnxLO9ECnf2LGM9BmiJKvhw==",
+      "repository": null,
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Audio.OpenAL",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netcoreapp3.1/OpenTK.Audio.OpenAL.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "N/SCeFrLJ3ckUbshyfsonbtjmDxh55urGiR+Fe1iPkTWyEW5OKfQRoIOZyjEva/4eRqOXdt3bV2ka4IJ2+JvZw==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Compute",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netcoreapp3.1/OpenTK.Compute.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "30G+/9mtrUJwX5xcRyz2qcujQ2s+wDm+C7qg6jDsLyGWUdND3j/vD+nlQ6tuKuAow51zWduFVujPkaS8VrBinQ==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Core",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netstandard2.1/OpenTK.Core.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "/4Mn3ABf1xNfHMzDFUapVY2K4PG3oP/oWTQJlK0JacT20HwsNe/HPIAhnAJWz27EM3ukOJDtqyQRukvQKqkcLw==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.GLWpfControl",
+      "version": "4.3.3",
+      "license": "MIT (official version tag)",
+      "licenseType": null,
+      "shippedAssets": [
+        "lib/netcoreapp3.1/GLWpfControl.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK.GLWpfControl-4.3.3-LICENSE.md"
+      ],
+      "lockContentHash": "mbKt+ZApqYk/Ym4Ph0dnI+hfSnyXn/gWW6Ys6l3C+fMlgXLYaWpbQ+/3yNm6G1lJ3vteXGxtoMJPFYlaXi/tQw==",
+      "repository": null,
+      "licenseUrl": "https://github.com/varon/GLWpfControl/blob/master/LICENSE.md",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Graphics",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netcoreapp3.1/OpenTK.Graphics.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "yZeq5swIsRnNzifVA9fLtl+qMAQvmYiF1b7U/XQLARmmU4PYQ23lPNahqAdD22XzA21ew7eG3yDyPLkYw+hDBA==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Input",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netstandard2.0/OpenTK.Input.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "njbC7fySQEK30rjOQ1uRjlycEkLw+UVoPT3nRQ8uBPNLotDgr47NEcPEjmJyX1ll+pm/wmtcvJIYHBRi1HbOqg==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Mathematics",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netcoreapp3.1/OpenTK.Mathematics.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "2ucF25RVJzdSLXUHgjAgB058gVfSgerrR5pLCn9J+Bnyqi45NrBfPu9wyTT35ZCjYwLJCu/HJMnzKFLjq+uFIA==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.redist.glfw",
+      "version": "3.4.0.44",
+      "license": "COPYING.md",
+      "licenseType": "file",
+      "shippedAssets": [
+        "runtimes/win-x64/native/glfw3.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/OpenTK.redist.glfw-3.4.0.44/COPYING.md"
+      ],
+      "lockContentHash": "HEjbdk0wWxSRrXHl3DSmrA8trecndgJpAHHloJJ1vPseNfeu/ynmrH/LturU1KguRn4r3IzZ81UIp5xRjnyahg==",
+      "repository": {
+        "type": "git",
+        "commit": "9d40a19a64652353c8f67b1c10d3622b07987da9"
+      },
+      "licenseUrl": "https://aka.ms/deprecateLicenseUrl",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Windowing.Common",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netcoreapp3.1/OpenTK.Windowing.Common.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "xNjvKjoptAh6w5/YYIx/9sNv3/A2VVlTahlekTlLP+qfNyig+0jBuLHO4bWELWZ7Ta3Y1m/2Pvk0Z1KCG8VZOA==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Windowing.Desktop",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netcoreapp3.1/OpenTK.Windowing.Desktop.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "LBX4jwCneISIBST2vWYLI8cdR8tLwHNcswK1decElbTAXMB+H6uFIoF41ld+af4q3TsHpjR5fyP2ilbTK3T0rA==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "OpenTK.Windowing.GraphicsLibraryFramework",
+      "version": "4.9.4",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/netcoreapp3.1/OpenTK.Windowing.GraphicsLibraryFramework.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+        "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md"
+      ],
+      "lockContentHash": "wNlxnPrD7veMV8EGTTi/sCDeg5V8w/18vC0aw0Ao69eNneD7YSq9Ad+C389rVA957eHNR6Xieu/5qzHQeEOyxQ==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/opentk/opentk.git"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "ScottPlot",
+      "version": "5.1.59",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/net10.0/ScottPlot.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/ScottPlot-5.1.59-LICENSE.txt"
+      ],
+      "lockContentHash": "a2xnmMNfhspakKobDfAX5s1GPLFgmEXtRewR9p6bWM91QuCxF5SjHnDbixAcZoU50LPicrCe04sWzIVzdSrmNw==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/ScottPlot/ScottPlot.git",
+        "branch": "refs/heads/main",
+        "commit": "fc81e78241e532daa97b47049b399dff81e80054"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "ScottPlot.WPF",
+      "version": "5.1.59",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/net10.0-windows7.0/ScottPlot.WPF.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/upstream/ScottPlot-5.1.59-LICENSE.txt"
+      ],
+      "lockContentHash": "d6Mv5PFtp+SUH2r8vBCb/mKsR6kobsOX/8/oZYzZl+k3a9jv+BmxVZAkr1Vshq6457812HcNGppoNJ1pSJk5zQ==",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/ScottPlot/ScottPlot.git",
+        "branch": "refs/heads/main",
+        "commit": "fc81e78241e532daa97b47049b399dff81e80054"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "SkiaSharp",
+      "version": "3.119.0",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/net8.0-windows10.0.19041/SkiaSharp.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/SkiaSharp-3.119.0/LICENSE.txt"
+      ],
+      "lockContentHash": "gR9yVoOta2Mc1Rxt15LD65AckfHMfwjIs/3kkD59C9bT2nYYISsE6uz3t4aMPNHA6CgsIL0Ssn+jE5OVilZ1yw==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "SkiaSharp.HarfBuzz",
+      "version": "3.119.0",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/net8.0/SkiaSharp.HarfBuzz.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/SkiaSharp.HarfBuzz-3.119.0/LICENSE.txt"
+      ],
+      "lockContentHash": "5ocGzl+RYEZFnUPUbModshnEFvKTku4hTtOBsLvy5MCK2KAHjq5Nw2+uAVUx79Rjh0z8fTojT6ZVav8MJgW0ug==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "SkiaSharp.NativeAssets.Linux.NoDependencies",
+      "version": "3.119.0",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [],
+      "scope": "restore-only",
+      "notices": [
+        "licenses/packages/SkiaSharp.NativeAssets.Linux.NoDependencies-3.119.0/LICENSE.txt",
+        "licenses/packages/SkiaSharp.NativeAssets.Linux.NoDependencies-3.119.0/THIRD-PARTY-NOTICES.txt"
+      ],
+      "lockContentHash": "e92vdqf1VOETPjy1T67Fs1zPxfGMM1nbrpt69GM5foXSI/iIbq6L9avPz/bl/DbWtb81D0yF/NKjRmXuOZoLcg==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "SkiaSharp.NativeAssets.Win32",
+      "version": "3.119.0",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "runtimes/win-x64/native/libSkiaSharp.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/SkiaSharp.NativeAssets.Win32-3.119.0/LICENSE.txt",
+        "licenses/packages/SkiaSharp.NativeAssets.Win32-3.119.0/THIRD-PARTY-NOTICES.txt"
+      ],
+      "lockContentHash": "IwC9yx36lOdXVT2DjgmWHl1qkVspfj8ctd4+li8CNnvqdfaTolXCOh6TLznURcPAvzatx9K/tLOB7zT6T8EA9w==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "SkiaSharp.Views.Desktop.Common",
+      "version": "3.119.0",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/net8.0-windows10.0.19041/SkiaSharp.Views.Desktop.Common.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/SkiaSharp.Views.Desktop.Common-3.119.0/LICENSE.txt"
+      ],
+      "lockContentHash": "KST7Q3n+X5BhDj1aKTJXk9tITWWznveka9n+pBjOtE53Omc+wlZR0s4fQStybWCVVaWG9eaeOMaw93J3zEMklA==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    },
+    {
+      "package": "SkiaSharp.Views.WPF",
+      "version": "3.119.0",
+      "license": "MIT",
+      "licenseType": "expression",
+      "shippedAssets": [
+        "lib/net8.0-windows10.0.19041/SkiaSharp.Views.WPF.dll"
+      ],
+      "scope": "runtime",
+      "notices": [
+        "licenses/packages/SkiaSharp.Views.WPF-3.119.0/LICENSE.txt"
+      ],
+      "lockContentHash": "1Dmj9RlBW/gvmJwSUER+N9plA/kcWOgiL5g3q2DB+USVQav8rQtfOZIQZ1Wt/AqhwepOacv1M6pZKDWtXmwDAg==",
+      "repository": {
+        "type": "git",
+        "url": "https://go.microsoft.com/fwlink/?linkid=868515",
+        "branch": "release/3.119.0",
+        "commit": "64f24b1cddb68d30ec0ac6b661964178fc21d5ec"
+      },
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "noticeStatus": "collected"
+    }
+  ],
+  "ffmpeg": {
+    "version": "8.1.3-5c4f5744cd-20261022",
+    "executableHashes": {
+      "ffmpeg.exe": "5F85B73EBD9531607223C39A2EB9EA9EA09A9804A57F577C93DCB1F434791886",
+      "ffprobe.exe": "87C9DD27136791F2000DB376231BFB0BAA1FEC0E754DF9636BBA175527209F2E"
+    },
+    "sourceCommit": "5c4f5744cd60943125a78db692b728210102f255",
+    "license": "LGPL-3.0-or-later",
+    "enabledConfigureOptions": [
+      "amf",
+      "chromaprint",
+      "cuda-llvm",
+      "ffnvcodec",
+      "fontconfig",
+      "gmp",
+      "iconv",
+      "lcms2",
+      "libaom",
+      "libaribb24",
+      "libaribcaption",
+      "libass",
+      "libbluray",
+      "libdav1d",
+      "libfreetype",
+      "libfribidi",
+      "libgme",
+      "libharfbuzz",
+      "libjxl",
+      "libkvazaar",
+      "liblcevc-dec",
+      "libmp3lame",
+      "liboapv",
+      "libopencore-amrnb",
+      "libopencore-amrwb",
+      "libopenh264",
+      "libopenjpeg",
+      "libopenmpt",
+      "libopus",
+      "libplacebo",
+      "librav1e",
+      "librist",
+      "librsvg",
+      "libshaderc",
+      "libsnappy",
+      "libsoxr",
+      "libsrt",
+      "libssh",
+      "libsvtav1",
+      "libtheora",
+      "libtwolame",
+      "libuavs3d",
+      "libvmaf",
+      "libvorbis",
+      "libvpl",
+      "libvpx",
+      "libvvenc",
+      "libwebp",
+      "libxml2",
+      "libzimg",
+      "libzmq",
+      "libzvbi",
+      "lv2",
+      "lzma",
+      "openal",
+      "opencl",
+      "pthreads",
+      "schannel",
+      "sdl2",
+      "vaapi",
+      "vapoursynth",
+      "version3",
+      "vulkan",
+      "zlib"
+    ],
+    "correspondingSourceBundleComplete": false
+  },
+  "publicRedistributionCleared": false
+}

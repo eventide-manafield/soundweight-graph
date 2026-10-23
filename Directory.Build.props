@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <DebugType>embedded</DebugType>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <Product>SoundWeight Graph</Product>
+    <Authors>eventide-manafield</Authors>
+    <Company>eventide-manafield</Company>
+    <Copyright>Copyright 2026 eventide-manafield</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/eventide-manafield/soundweight-graph</RepositoryUrl>
+  </PropertyGroup>
+</Project>

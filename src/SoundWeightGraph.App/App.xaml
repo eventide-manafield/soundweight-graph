@@ -1,0 +1,10 @@
+<Application x:Class="SoundWeightGraph.App.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Application.Resources>
+    <Style TargetType="Button">
+      <Setter Property="Padding" Value="14,8"/><Setter Property="Margin" Value="0,0,8,0"/>
+      <Setter Property="Background" Value="#F1F5F9"/><Setter Property="Foreground" Value="#182438"/>
+      <Setter Property="BorderBrush" Value="#CBD5E1"/><Setter Property="Cursor" Value="Hand"/>
+    </Style>
+    <Style TargetType="TextBlock"><Setter Property="Foreground" Value="#182438"/></Style>
+  </Application.Resources>
+</Application>

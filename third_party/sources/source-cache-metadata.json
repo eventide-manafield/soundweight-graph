@@ -1,0 +1,15 @@
+{
+  "id": 12424698518,
+  "name": "download-cache",
+  "size_in_bytes": 2210375345,
+  "digest": "sha256:f89c6c43969d92c8b95cb459a90fbafbc743d3d3cc4d16c610317f9ceef922f8",
+  "expired": false,
+  "archive_download_url": "https://api.github.com/repos/BtbN/FFmpeg-Builds/actions/artifacts/12424698518/zip",
+  "workflow_run": {
+    "id": 39776938430,
+    "repository_id": 292087234,
+    "head_repository_id": 292087234,
+    "head_branch": "master",
+    "head_sha": "937868360a21d711ec94a33f5591d345ad9b7754"
+  }
+}

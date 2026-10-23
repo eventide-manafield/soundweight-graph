@@ -1,0 +1,146 @@
+[
+  {
+    "file": "licenses/upstream/FFmpeg-COPYING.GPLv3.txt",
+    "source": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/5c4f5744cd60943125a78db692b728210102f255/COPYING.GPLv3",
+    "sha256": "8CEB4B9EE5ADEDDE47B31E975C1D90C73AD27B6B165A1DCD80C7C545EB65B903",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/FFmpeg-COPYING.LGPLv3.txt",
+    "source": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/5c4f5744cd60943125a78db692b728210102f255/COPYING.LGPLv3",
+    "sha256": "DA7EABB7BAFDF7D3AE5E9F223AA5BDC1EECE45AC569DC21B3B037520B4464768",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/ScottPlot-5.1.59-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/ScottPlot/ScottPlot/fc81e78241e532daa97b47049b399dff81e80054/LICENSE",
+    "sha256": "D32218DD6FCC1E749BCBE2C193CB5703863724E58D1693AA9F278EDEFEE69F7B",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/OpenTK-4.9.4-LICENSE.md",
+    "source": "https://raw.githubusercontent.com/opentk/opentk/8d1d462877936922a3989f56aac8c17add824919/LICENSE.md",
+    "sha256": "153D157C35F9F8229A206036450040952268DA4D8D6C28A833C6D0463F56263D",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/OpenTK.GLWpfControl-4.3.3-LICENSE.md",
+    "source": "https://raw.githubusercontent.com/opentk/GLWpfControl/d5c1851ffe537374eeda852a4ea958b94647ad9c/LICENSE.md",
+    "sha256": "2C2A87421DDC39403B9FE0709B8E27AB93E02C868614810A6865607CA267A5FA",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/BtbN-build-recipes-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/BtbN/FFmpeg-Builds/937868360a21d711ec94a33f5591d345ad9b7754/LICENSE",
+    "sha256": "C1B3CC7EEC42BD9C4F6247169BB887B4A9BC904ABFD2A7F7F9231ED357844993",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/OpenTK-4.9.4-THIRD_PARTIES.md",
+    "source": "https://raw.githubusercontent.com/opentk/opentk/8d1d462877936922a3989f56aac8c17add824919/THIRD_PARTIES.md",
+    "sha256": "2B499225AC89FF1A813B30E666EA0F2B5D22C5E71B25EDC99EA0EB4BFD974FA6",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/WindowsSDK-license.rtf",
+    "source": "https://download.microsoft.com/download/0/F/F/0FF2B061-47DD-4F55-89B6-FD1D8C44F14D/sdk_license.rtf",
+    "sha256": "DD07EB178E00C6BBA4148457FC00FF77CD4887EB521D504186FE59C9EC8BBE62",
+    "transformation": null
+  },
+  {
+    "file": "licenses/upstream/WindowsSDK-license.txt",
+    "source": "https://download.microsoft.com/download/0/F/F/0FF2B061-47DD-4F55-89B6-FD1D8C44F14D/sdk_license.rtf",
+    "sha256": "E05C4563104790E42D73F0F33A8C267F6FF0466DB656FD795EFD75AC29E4AD5B",
+    "transformation": "Plain text extracted from retained RTF using Windows RichTextBox; RTF is authoritative."
+  },
+  {
+    "file": "licenses/packages/HarfBuzzSharp-8.3.1.1/LICENSE.txt",
+    "source": "nuget:HarfBuzzSharp/8.3.1.1/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/HarfBuzzSharp.NativeAssets.Linux-8.3.1.1/LICENSE.txt",
+    "source": "nuget:HarfBuzzSharp.NativeAssets.Linux/8.3.1.1/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/HarfBuzzSharp.NativeAssets.Linux-8.3.1.1/THIRD-PARTY-NOTICES.txt",
+    "source": "nuget:HarfBuzzSharp.NativeAssets.Linux/8.3.1.1/THIRD-PARTY-NOTICES.txt",
+    "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+  },
+  {
+    "file": "licenses/packages/HarfBuzzSharp.NativeAssets.Win32-8.3.1.1/LICENSE.txt",
+    "source": "nuget:HarfBuzzSharp.NativeAssets.Win32/8.3.1.1/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/HarfBuzzSharp.NativeAssets.Win32-8.3.1.1/THIRD-PARTY-NOTICES.txt",
+    "source": "nuget:HarfBuzzSharp.NativeAssets.Win32/8.3.1.1/THIRD-PARTY-NOTICES.txt",
+    "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+  },
+  {
+    "file": "licenses/packages/Microsoft.NET.ILLink.Tasks-10.0.3/THIRD-PARTY-NOTICES.TXT",
+    "source": "nuget:Microsoft.NET.ILLink.Tasks/10.0.3/THIRD-PARTY-NOTICES.TXT",
+    "sha256": "6D15E10A101C6BFFF2AB4429ED061BF76C456FC4B23AD6B03E0D0F8377148A21"
+  },
+  {
+    "file": "licenses/packages/Microsoft.NETCore.App.Runtime.win-x64-10.0.11/LICENSE.TXT",
+    "source": "nuget:Microsoft.NETCore.App.Runtime.win-x64/10.0.11/LICENSE.TXT",
+    "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+  },
+  {
+    "file": "licenses/packages/Microsoft.NETCore.App.Runtime.win-x64-10.0.11/THIRD-PARTY-NOTICES.TXT",
+    "source": "nuget:Microsoft.NETCore.App.Runtime.win-x64/10.0.11/THIRD-PARTY-NOTICES.TXT",
+    "sha256": "6D15E10A101C6BFFF2AB4429ED061BF76C456FC4B23AD6B03E0D0F8377148A21"
+  },
+  {
+    "file": "licenses/packages/Microsoft.WindowsDesktop.App.Runtime.win-x64-10.0.3/LICENSE",
+    "source": "nuget:Microsoft.WindowsDesktop.App.Runtime.win-x64/10.0.3/LICENSE",
+    "sha256": "A89886665765362EB77E0F8E26602C924520041D1711B2EEDC136434FE4D01AB"
+  },
+  {
+    "file": "licenses/packages/OpenTK.redist.glfw-3.4.0.44/COPYING.md",
+    "source": "nuget:OpenTK.redist.glfw/3.4.0.44/COPYING.md",
+    "sha256": "149704059B5D0BF551637E50042DD4DE9C2CAE921021F6636298911E3A5F9462"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp-3.119.0/LICENSE.txt",
+    "source": "nuget:SkiaSharp/3.119.0/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp.HarfBuzz-3.119.0/LICENSE.txt",
+    "source": "nuget:SkiaSharp.HarfBuzz/3.119.0/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp.NativeAssets.Linux.NoDependencies-3.119.0/LICENSE.txt",
+    "source": "nuget:SkiaSharp.NativeAssets.Linux.NoDependencies/3.119.0/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp.NativeAssets.Linux.NoDependencies-3.119.0/THIRD-PARTY-NOTICES.txt",
+    "source": "nuget:SkiaSharp.NativeAssets.Linux.NoDependencies/3.119.0/THIRD-PARTY-NOTICES.txt",
+    "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp.NativeAssets.Win32-3.119.0/LICENSE.txt",
+    "source": "nuget:SkiaSharp.NativeAssets.Win32/3.119.0/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp.NativeAssets.Win32-3.119.0/THIRD-PARTY-NOTICES.txt",
+    "source": "nuget:SkiaSharp.NativeAssets.Win32/3.119.0/THIRD-PARTY-NOTICES.txt",
+    "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp.Views.Desktop.Common-3.119.0/LICENSE.txt",
+    "source": "nuget:SkiaSharp.Views.Desktop.Common/3.119.0/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  },
+  {
+    "file": "licenses/packages/SkiaSharp.Views.WPF-3.119.0/LICENSE.txt",
+    "source": "nuget:SkiaSharp.Views.WPF/3.119.0/LICENSE.txt",
+    "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+  }
+]

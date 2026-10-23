@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+artifacts/
+third_party/download/
+third_party/*.zip
+third_party/tools/*.exe
+.vs/
+
+third_party/sources/*.zip
