@@ -12,6 +12,8 @@ public partial class MainWindow : Window
     public MainViewModel Model { get; } = new();
     private Point down;
     private bool closing;
+    private ScottPlot.Plottables.Signal? totalSignal;
+    private readonly Dictionary<int, ScottPlot.Plottables.Signal> highlightedSignals = [];
     public MainWindow()
     {
         InitializeComponent(); DataContext = Model;
@@ -31,19 +33,64 @@ public partial class MainWindow : Window
     private void UpdatePlot(bool reset)
     {
         var limits = Chart.Plot.Axes.GetLimits();
-        Chart.Plot.Clear();
+        Chart.Plot.Clear(); totalSignal = null; highlightedSignals.Clear();
         if (Model.Series.HasTracks)
         {
             // Signal uses per-pixel min/max rendering for dense, evenly-spaced samples.
-            var signal = Chart.Plot.Add.Signal(Model.Series.SmoothedScore, Model.Series.FrameDurationSec);
-            signal.Color = ScottPlot.Color.FromHex("3470D8"); signal.LineWidth = 1.8f;
+            totalSignal = Chart.Plot.Add.Signal(Model.Series.SmoothedScore, Model.Series.FrameDurationSec);
+            totalSignal.Color = ScottPlot.Color.FromHex("3470D8"); totalSignal.LineWidth = 1.8f;
+            foreach (var track in Model.Tracks.Where(t => t.Highlighted && t.Enabled && t.Weight > 0))
+            {
+                if (!Model.Series.TrackContributions.TryGetValue(track.Stream.StreamIndex, out var values)) continue;
+                var overlay = Chart.Plot.Add.Signal(values, Model.Series.FrameDurationSec);
+                overlay.Color = ScottPlot.Color.FromHex(track.HighlightColor).WithAlpha(.6);
+                overlay.LineWidth = 2.4f;
+                highlightedSignals.Add(track.Stream.StreamIndex, overlay);
+            }
         }
         if (reset) SetFullView();
         else Chart.Plot.Axes.SetLimits(limits.Left, limits.Right, 0, 100);
         Chart.Refresh();
     }
     private void SetFullView() => Chart.Plot.Axes.SetLimits(0, Math.Max(1, Model.Duration), 0, 100);
-    internal double RenderedSeriesEnd => Chart.Plot.GetPlottables().Single().GetAxisLimits().Right;
+    internal double RenderedSeriesEnd => totalSignal?.GetAxisLimits().Right ?? 0;
+    internal async Task VerifyTrackHighlightForSmokeAsync()
+    {
+        var tracks = Model.Tracks.Where(t => t.Enabled && t.Weight > 0 && Model.Series.TrackContributions.ContainsKey(t.Stream.StreamIndex)).Take(2).ToArray();
+        if (tracks.Length != 2) throw new InvalidOperationException("Overlay smoke requires two analyzed tracks");
+        var score = Model.Series;
+        var raw = score.RawScore.ToArray();
+        int decodes = Model.DecodeCount;
+        Chart.Plot.Axes.SetLimits(3, 13, 0, 100);
+        foreach (var track in tracks) track.Highlighted = true;
+        var limits = Chart.Plot.Axes.GetLimits();
+        if (highlightedSignals.Count != 2 || Chart.Plot.GetPlottables().Count() != 3 ||
+            !ReferenceEquals(score, Model.Series) || !raw.SequenceEqual(Model.Series.RawScore) ||
+            limits.Left != 3 || limits.Right != 13 || limits.Bottom != 0 || limits.Top != 100)
+            throw new InvalidOperationException("Highlight changed scores, view, or wrong tracks");
+        foreach (var track in tracks)
+        {
+            var overlay = highlightedSignals[track.Stream.StreamIndex];
+            if (overlay.Color != ScottPlot.Color.FromHex(track.HighlightColor).WithAlpha(.6) ||
+                Math.Abs(overlay.GetAxisLimits().Right - RenderedSeriesEnd) > .001)
+                throw new InvalidOperationException("Overlay color/opacity or timing is incorrect");
+        }
+        tracks[0].Highlighted = false;
+        if (highlightedSignals.Count != 1 || !highlightedSignals.ContainsKey(tracks[1].Stream.StreamIndex))
+            throw new InvalidOperationException("Unchecking a track removed the wrong overlay");
+        tracks[0].Highlighted = true;
+        double weight = tracks[0].Weight;
+        tracks[0].Weight = 0; await Model.FlushCalculationAsync();
+        if (highlightedSignals.ContainsKey(tracks[0].Stream.StreamIndex)) throw new InvalidOperationException("Zero-weight overlay visible");
+        tracks[0].Weight = weight; await Model.FlushCalculationAsync();
+        tracks[0].Enabled = false; await Model.FlushCalculationAsync();
+        if (highlightedSignals.ContainsKey(tracks[0].Stream.StreamIndex)) throw new InvalidOperationException("Disabled overlay visible");
+        tracks[0].Enabled = true; await Model.FlushCalculationAsync();
+        if (highlightedSignals.Count != 2 || Model.DecodeCount != decodes || !raw.SequenceEqual(Model.Series.RawScore))
+            throw new InvalidOperationException("Restoring highlights changed decoding or final scores");
+        foreach (var track in tracks) track.Highlighted = false;
+        SetFullView(); Chart.Refresh();
+    }
     internal void VerifyTimelineNavigationForSmoke()
     {
         // Exercise the installed input processor with a real five-hour Signal series.
@@ -54,6 +101,8 @@ public partial class MainWindow : Window
             Chart.Plot.Clear();
             double[] samples = Enumerable.Range(0, 36000).Select(i => 50 + 25 * Math.Sin(i / 30.0)).ToArray();
             Chart.Plot.Add.Signal(samples, .5);
+            Chart.Plot.Add.Signal(samples.Select(x => x * .4).ToArray(), .5).Color = ScottPlot.Color.FromHex("D97706").WithAlpha(.6);
+            Chart.Plot.Add.Signal(samples.Select(x => x * .3).ToArray(), .5).Color = ScottPlot.Color.FromHex("059669").WithAlpha(.6);
             Chart.Plot.Axes.SetLimits(0, 18000, 0, 100);
             Chart.Plot.RenderInMemory(900, 400);
             var rect = Chart.Plot.LastRender.DataRect;

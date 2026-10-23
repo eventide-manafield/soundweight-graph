@@ -102,14 +102,14 @@ result = dict(schemaVersion=1, inspectedDate='2026-10-23',
                           license='LGPL-3.0-or-later', enabledConfigureOptions=configured,
                           correspondingSourceBundleComplete=True,
                           sourceArchiveSha256='F89C6C43969D92C8B95CB459A90FBAFBC743D3D3CC4D16C610317F9CEEF922F8',
-                          sourceRelease='https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.1.0'),
+                          sourceRelease='https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.2.0'),
               scope='Inventory and collected notices; not a legal certification.')
 (docs / 'dependency-inventory.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 (licenses / 'provenance.json').write_text(json.dumps(provenance, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 
 lines = ['# SoundWeight Graph — Third-party notices', '',
-         'Prepared 2026-10-23 for SoundWeight Graph v0.1.0.', '',
-         'Exact FFmpeg sources, pinned build recipes and the verified upstream dependency source cache are provided as separate assets with v0.1.0.', '',
+         'Prepared 2026-10-23 for SoundWeight Graph v0.2.0.', '',
+         'Exact FFmpeg sources, pinned build recipes and the verified upstream dependency source cache are provided as separate assets with v0.2.0.', '',
          'Project-owned code: Apache-2.0. Copyright 2026 eventide-manafield. Original project: https://github.com/eventide-manafield/soundweight-graph', '',
          'Third-party components retain their own licenses. The project Apache license does not replace their terms.', '',
          '## Project LICENSE', '', (out / 'LICENSE').read_text(encoding='utf-8-sig').rstrip(), '',
@@ -131,7 +131,7 @@ lines += ['', 'Restore-only dependencies, asset lists, package hashes and exact 
           'This does not remove the redistribution obligations for the embedded executables themselves.', '',
           'FFmpeg source commit: https://github.com/FFmpeg/FFmpeg/commit/5c4f5744cd60943125a78db692b728210102f255',
           'Build recipe snapshot: https://github.com/BtbN/FFmpeg-Builds/tree/937868360a21d711ec94a33f5591d345ad9b7754',
-          'The corresponding source kit and all three dependency-source parts are available at https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.1.0.',
+          'The corresponding source kit and all three dependency-source parts are available at https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.2.0.',
           'Original archive SHA-256: D33EAD5ED152CE6E2BEB6D8B0B209984ACFD9E9513E2A55B6855E6AB0956B5EF', '',
           'See [FFMPEG_SOURCE_STATUS.md](FFMPEG_SOURCE_STATUS.md) for archive hashes, assembly and rebuild instructions. Sources are not embedded in the executable.', '',
           '## Full license and notice texts', '',

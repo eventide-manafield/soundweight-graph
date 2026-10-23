@@ -25,6 +25,8 @@ public partial class App : Application
                 await window.Model.OpenAsync(e.Args[1]);
                 await window.Model.AnalyzeAsync();
                 if (!window.Model.Series.HasTracks) throw new InvalidOperationException(window.Model.Warning + " " + window.Model.Status);
+                if (window.Model.IsAnalyzing || window.AnalysisProgress.Visibility != Visibility.Collapsed)
+                    throw new InvalidOperationException("Completed analysis progress is still visible");
                 int decodes = window.Model.DecodeCount;
                 var track = window.Model.Tracks.First(t => t.Enabled);
                 track.Weight = track.Weight == 2 ? 1.75 : 2; await window.Model.FlushCalculationAsync();
@@ -44,13 +46,19 @@ public partial class App : Application
                 await window.Model.OpenAsync(e.Args[1]); await window.Model.AnalyzeAsync();
                 if (window.Model.DecodeCount != decodes) throw new InvalidOperationException("Cache reopen decoded media");
                 window.VerifyTimelineNavigationForSmoke();
+                await window.VerifyTrackHighlightForSmokeAsync();
+                foreach (var highlighted in window.Model.Tracks.Where(t => t.Enabled && t.Weight > 0).Take(2)) highlighted.Highlighted = true;
                 window.Model.SelectedTime = "00:00:12.000";
                 await Dispatcher.InvokeAsync(() => { }, System.Windows.Threading.DispatcherPriority.ApplicationIdle);
                 await Task.Delay(600);
                 window.UpdateLayout();
                 var visual = (FrameworkElement)window.Content;
                 var bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 96, 96, PixelFormats.Pbgra32);
-                bitmap.Render(visual);
+                // VisualBrush captures the content bounds without its parent-relative margin offset.
+                var drawing = new DrawingVisual();
+                using (var context = drawing.RenderOpen())
+                    context.DrawRectangle(new VisualBrush(visual), null, new Rect(0, 0, visual.ActualWidth, visual.ActualHeight));
+                bitmap.Render(drawing);
                 var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));
                 using (var output = File.Create(Path.ChangeExtension(report, ".png"))) encoder.Save(output);
                 int tracks = window.Model.Tracks.Count, frames = window.Model.Series.RawScore.Length;
@@ -62,7 +70,11 @@ public partial class App : Application
                     await window.Model.OpenAsync(longFile);
                     Task analysis = window.Model.AnalyzeAsync();
                     await WaitForProgress(window.Model, analysis);
+                    if (!window.Model.IsAnalyzing || window.AnalysisProgress.Visibility != Visibility.Visible)
+                        throw new InvalidOperationException("Active analysis progress is hidden");
                     window.Model.Cancel(); await analysis;
+                    if (window.Model.IsAnalyzing || window.AnalysisProgress.Visibility != Visibility.Collapsed)
+                        throw new InvalidOperationException("Cancelled analysis progress is still visible");
                     cancellationChecked = window.Model.Status.Contains("취소");
                     if (!cancellationChecked) throw new InvalidOperationException("Active GUI cancellation failed");
                     Task again = window.Model.AnalyzeAsync();
@@ -77,7 +89,7 @@ public partial class App : Application
                     Success = true, ProductName = window.Title, BrandingChecked = true,
                     RuntimeVersion = Environment.Version.ToString(), Tracks = tracks, Frames = frames,
                     InitialDecodes = decodes, RecalculationDecodes = 0, AllOffChecked = true,
-                    CacheReopenChecked = true, PlotTimeScaleChecked = true,
+                    CacheReopenChecked = true, PlotTimeScaleChecked = true, TrackHighlightChecked = true,
                     HorizontalWheelZoomChecked = true, ShiftWheelPanChecked = true, FiveHourNavigationChecked = true,
                     ActiveCancellationChecked = cancellationChecked, FileSwitchDuringDecodeChecked = fileSwitchChecked,
                     MaxScore = maxScore, window.Model.Warning

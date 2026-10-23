@@ -80,3 +80,40 @@ v0.1.0은 아래 확인된 범위로 제공한다. 위 환경·성능 항목의 
 - 소스는 별도 릴리스 파일로 제공하고 앱에는 고지 전문만 포함.
 - SDK 재배포 약관 적용 범위와 이용 조건을 THIRD_PARTY_TERMS.md 및 릴리스 페이지에 안내.
 - 최종 고지를 반영한 EXE의 빌드 및 GUI smoke 결과는 artifacts/published-smoke.json에 기록.
+
+## 트랙 영향력 강조 개발 검증
+
+- 작업 브랜치: `feature/track-influence`. `release/0.1.0`과 `v0.1.0`은 기존 커밋을 유지한다.
+- 사용자가 수정한 README 예시를 반영하고 개발 환경·빌드 절차·프로젝트 구조는 `<details>`로 접었다.
+- 트랙별 가중 기여도를 동일한 0.5초 간격과 평활화로 계산한다. 공동 반응 보너스는 종합 점수에만 남긴다.
+- 체크한 트랙을 고유 색상과 투명도 40%로 표시한다. 표시 토글은 점수·재디코딩·확대 상태를 바꾸지 않는다.
+- 빌드 경고 0, 오류 0. xUnit 24개 통과. 가중치 비율, 짧은 트랙의 뒤쪽 무음 처리, 평활화, 제외 트랙을 검사했다.
+- 실제 WPF와 테스트용 단일 EXE에서 복수 트랙 강조·해제, 사용 해제·가중치 0, 원래 설정 복원, 점수 불변 및 재디코딩 0회를 확인했다.
+- 5시간 Signal 데이터에 강조 선 2개를 추가한 상태에서 휠 확대·축소와 Shift+휠 이동을 확인했다.
+- 체크박스는 ViewModel 경로로 검사했고 렌더링 이미지를 확인했다. 물리 마우스로 체크박스를 누르는 OS 입력 자동 검사는 수행하지 않았다.
+- 원본 결과: `artifacts/test-results/track-influence.trx`, `artifacts/track-influence-published-smoke.json` 및 같은 이름의 PNG.
+- 테스트용 실행 파일: `artifacts/preview/SoundWeightGraph.exe`. 공개된 v0.1.0 실행 파일과 릴리스는 변경하지 않았다.
+
+## 상단 화면 정리
+
+- 본문 좌상단의 프로그램명·큰 안내 제목·부제목을 제거하고 툴바와 그래프를 위로 당겼다.
+- 오픈소스 고지는 툴바 오른쪽에 배치했다. 그래프 아래 마지막 후보 점수 설명 문장을 제거했다.
+- 취소 버튼은 `작업 취소`로 표시하고 Busy 상태에서만 보이게 했다. 실제 분석 취소 동작은 유지한다.
+- 테스트용 EXE 빌드와 기존 GUI 검사 통과. 렌더링 이미지에서 제목 영역 제거, 넓어진 그래프 및 대기 상태의 취소 버튼 숨김을 확인했다.
+- 최신 확인용 EXE: `artifacts/ui-preview/SoundWeightGraph.exe`. 결과: `artifacts/compact-ui-smoke.json`, `artifacts/compact-ui-smoke.png`.
+
+## 분석 중 진행 표시
+
+- 하단 상시 상태 문구를 제거했다. 진행 막대와 여백은 분석 중에만 나타나고 완료·취소·실패 시 접힌다.
+- 파일 조사나 가중치 재계산에는 진행 막대를 표시하지 않는다. 비어 있지 않은 오류/경고 안내는 별도로 유지한다.
+- 최신 테스트용 EXE: `artifacts/progress-preview/SoundWeightGraph.exe`.
+- 단일 EXE GUI 검사에서 분석 중 Visible, 완료 및 취소 후 Collapsed 상태를 확인했다. 결과: `artifacts/analysis-progress-smoke.json` 및 PNG.
+
+## v0.2.0 최종 검증
+
+- 오디오 트랙 제목 아래 부제목까지 제거했다. README 미리보기는 최종 배포 EXE의 실제 렌더링이다.
+- 버전 0.2.0 / 파일 버전 0.2.0.0 확인. Release 빌드 경고 0, 오류 0. xUnit 24개 재실행 통과.
+- 배포 EXE의 트랙 강조, 점수 불변, 5시간 그래프 확대·이동, 분석 취소·파일 전환, 완료·취소 후 진행 막대 숨김 검사 통과.
+- 종속 라이브러리와 내장 FFmpeg 버전은 v0.1.0과 동일하며 27개 원문 고지 해시를 재검증했다.
+- 원본 결과: `artifacts/test-results/release-0.2.0.trx`, `artifacts/release-0.2.0-smoke.json`, `artifacts/release-0.2.0-smoke.png`.
+- 최종 EXE: `artifacts/release-0.2.0/SoundWeightGraph.exe`. 해시/크기는 `artifacts/release-manifest.json` 및 릴리스 `SHA256SUMS.txt`에 기록한다.

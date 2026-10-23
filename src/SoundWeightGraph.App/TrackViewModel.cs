@@ -8,6 +8,15 @@ public sealed class TrackViewModel(AudioStreamInfo stream) : Observable
     public string Name => Stream.DisplayName;
     public string Details => $"{Stream.Codec.ToUpperInvariant()} · {Stream.Channels}채널 · stream {Stream.StreamIndex}";
     public string MixHint { get; init; } = "";
+    private static readonly string[] HighlightColors = ["#D97706", "#059669", "#9333EA", "#DB2777", "#0891B2", "#78716C"];
+    public string HighlightColor => HighlightColors[Math.Max(0, Stream.AudioOrdinal - 1) % HighlightColors.Length];
+    private bool highlighted;
+    public bool Highlighted
+    {
+        get => highlighted;
+        set { if (Set(ref highlighted, value)) HighlightChanged?.Invoke(); }
+    }
+    public event Action? HighlightChanged;
     private bool enabled = true;
     private double weight = 1;
     private TrackKind kind;

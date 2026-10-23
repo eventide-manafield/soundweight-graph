@@ -5,8 +5,8 @@
 
 ## 제공 자료
 
-[v0.1.0 릴리스](https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.1.0)의
-`SoundWeightGraph-0.1.0-third-party-sources.zip`과 `ffmpeg-dependency-sources.zip.001`~`.003`을 함께 받는다.
+[v0.2.0 릴리스](https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.2.0)의
+`SoundWeightGraph-0.2.0-third-party-sources.zip`과 `ffmpeg-dependency-sources.zip.001`~`.003`을 함께 받는다.
 일반 프로그램 실행에는 이 소스 자료가 필요하지 않다.
 
 | 자료 | 식별자 | SHA-256 |

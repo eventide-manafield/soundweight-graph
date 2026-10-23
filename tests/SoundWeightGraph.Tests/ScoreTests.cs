@@ -16,6 +16,26 @@ public class ScoreTests
         Assert.Equal(78.75, score.BaseScore[0], 10);
         Assert.InRange(score.RawScore[0], 78.75, 100);
     }
+    [Fact] public void ContributionsAreWeightedSharesWithoutSharedBonus()
+    {
+        var score = calculator.Calculate([Feature(1, .8), Feature(2, .9), Feature(3, .4)],
+            [new(1, true, 2), new(2, true, 1.5), new(3, true, .5)], new());
+        Assert.Equal(40, score.TrackContributions[1][0], 10);
+        Assert.Equal(33.75, score.TrackContributions[2][0], 10);
+        Assert.Equal(5, score.TrackContributions[3][0], 10);
+        Assert.Equal(score.BaseScore[0], score.TrackContributions.Values.Sum(v => v[0]), 10);
+        Assert.True(score.SmoothedScore[0] > score.TrackContributions.Values.Sum(v => v[0]));
+    }
+    [Fact] public void ContributionsUseSameSmoothingAndExcludeUnavailableTracks()
+    {
+        var score = calculator.Calculate([Feature(1, 1), Feature(2, 0, 1, 0), Feature(3, 1, 1, 1)],
+            [new(1), new(2), new(3, false), new(4), new(5, true, 0)], new());
+        Assert.Equal(new[] { 1, 2 }, score.TrackContributions.Keys.Order());
+        Assert.Equal(new[] { 25.0, 50.0 / 3, 0 }, score.TrackContributions[1]);
+        Assert.Equal(new[] { 25.0, 50.0 / 3, 25.0 }, score.TrackContributions[2]);
+        Assert.All(score.TrackContributions.Values, values => Assert.Equal(score.SmoothedScore.Length, values.Length));
+        Assert.Empty(calculator.Calculate([Feature(1, 1)], [new(1, false)], new()).TrackContributions);
+    }
     [Fact] public void DisabledAndZeroWeightNeverDilute()
     {
         var a = Feature(1, .8, .3, 1); var empty = Feature(2, 0, 0, 0);

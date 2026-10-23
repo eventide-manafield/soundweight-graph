@@ -19,6 +19,7 @@ public sealed class ScoreCalculator : IScoreCalculator
         double total = selected.Sum(x => x.Weight), pairs = 0;
         double[] b = new double[length], c = new double[length], raw = new double[length];
         int radius = (int)Math.Round(options.CoincidenceWindowSec / AnalysisFormat.FrameSeconds);
+        var contributions = selected.ToDictionary(x => x.Feature.StreamIndex, _ => new double[length]);
         var dilated = selected.Select(x => WindowMax(x.Feature.Activity, radius, length)).ToArray();
         for (int i = 0; i < selected.Length; i++)
             for (int j = i + 1; j < selected.Length; j++) pairs += selected[i].Weight * selected[j].Weight;
@@ -28,7 +29,9 @@ public sealed class ScoreCalculator : IScoreCalculator
             for (int i = 0; i < selected.Length; i++)
             {
                 var (w, f) = selected[i];
-                b[t] += w * (t < f.Activity.Length ? f.Activity[t] : 0) / total;
+                double share = w * (t < f.Activity.Length ? f.Activity[t] : 0) / total;
+                b[t] += share;
+                contributions[f.StreamIndex][t] = 100 * share;
                 if (pairs > 0)
                     for (int j = i + 1; j < selected.Length; j++)
                         c[t] += w * selected[j].Weight * Math.Min(dilated[i][t], dilated[j][t]) / pairs;
@@ -37,14 +40,27 @@ public sealed class ScoreCalculator : IScoreCalculator
             b[t] *= 100;
         }
         int smoothRadius = (int)Math.Floor(options.SmoothingSec / AnalysisFormat.FrameSeconds / 2);
+        return new(AnalysisFormat.FrameSeconds, b, c, raw, Smooth(raw, smoothRadius, ct))
+        {
+            TrackContributions = contributions.ToDictionary(x => x.Key, x => Smooth(x.Value, smoothRadius, ct))
+        };
+    }
+
+    private static double[] Smooth(double[] values, int smoothRadius, CancellationToken ct)
+    {
+        int length = values.Length;
         double[] prefix = new double[length + 1], smooth = new double[length];
-        for (int i = 0; i < length; i++) prefix[i + 1] = prefix[i] + raw[i];
+        for (int i = 0; i < length; i++)
+        {
+            if ((i & 255) == 0) ct.ThrowIfCancellationRequested();
+            prefix[i + 1] = prefix[i] + values[i];
+        }
         for (int i = 0; i < length; i++)
         {
             int left = Math.Max(0, i - smoothRadius), right = Math.Min(length - 1, i + smoothRadius);
             smooth[i] = (prefix[right + 1] - prefix[left]) / (right - left + 1);
         }
-        return new(AnalysisFormat.FrameSeconds, b, c, raw, smooth);
+        return smooth;
     }
 
     // Monotonic deque: O(frames), including the padded tail of shorter tracks.

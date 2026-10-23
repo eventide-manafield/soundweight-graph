@@ -17,7 +17,7 @@ public sealed class MainViewModel : Observable
     private string? key;
     private TrackFeatures[] features = [];
     private ToolPaths? tools;
-    private bool busy;
+    private bool busy, isAnalyzing;
     private double progress;
     private string title = "녹화 속 반응이 모이는 순간을 찾아봐";
     private string subtitle = "MP4 파일을 선택하거나 이 창에 끌어다 놓아 주세요.";
@@ -31,6 +31,7 @@ public sealed class MainViewModel : Observable
     public int DecodeCount { get; private set; }
     public double Duration => Math.Max(media?.DurationSec ?? 0, features.Length == 0 ? 0 : features.Max(f => f.SampleCounts.Sum(n => (long)n) / 16000.0));
     public bool Busy { get => busy; private set { Set(ref busy, value); AnalyzeCommand.Refresh(); CancelCommand.Refresh(); ClearCacheCommand.Refresh(); } }
+    public bool IsAnalyzing { get => isAnalyzing; private set => Set(ref isAnalyzing, value); }
     public double Progress { get => progress; private set => Set(ref progress, value); }
     public string Title { get => title; private set => Set(ref title, value); }
     public string Subtitle { get => subtitle; private set => Set(ref subtitle, value); }
@@ -70,6 +71,7 @@ public sealed class MainViewModel : Observable
             var selection = saved?.FirstOrDefault(s => s.StreamIndex == stream.StreamIndex);
             if (selection is not null) track.Restore(selection);
             track.SelectionChanged += QueueRecalculation;
+            track.HighlightChanged += () => SeriesChanged?.Invoke(false);
             Tracks.Add(track);
         }
         Subtitle = $"{FormatTime(Duration)} · 오디오 {Tracks.Count}개 · 로컬 분석";
@@ -121,14 +123,14 @@ public sealed class MainViewModel : Observable
             Subtitle = $"{FormatTime(Duration)} · 오디오 {Tracks.Count}개 · 로컬 분석";
             Status = cached is not null ? "캐시에서 불러왔어요 · 디코딩 없이 재계산 가능" : $"분석 완료 {features.Length}/{Tracks.Count} · 가중치 변경은 재디코딩 없이 반영돼요";
             await RecalculateAsync(true);
-        });
+        }, isAnalysis: true);
     }
     private static void SetTrackResult(TrackViewModel track, TrackFeatures f)
     {
         track.Status = f.IsEmpty ? "사실상 무음 · 비활성 권장" : $"완료 · 유효 신호 {f.ActiveRatio:P1}";
         if (f.IsEmpty && !track.Touched) track.Enabled = false;
     }
-    private Task StartOperation(Func<CancellationToken, long, Task> action)
+    private Task StartOperation(Func<CancellationToken, long, Task> action, bool isAnalysis = false)
     {
         operationCts?.Cancel(); scoreCts?.Cancel();
         var old = operation;
@@ -140,7 +142,7 @@ public sealed class MainViewModel : Observable
         {
             await old;
             if (cts.IsCancellationRequested) { cts.Dispose(); return; }
-            Busy = true; Progress = 0; Warning = "";
+            Busy = true; Progress = 0; Warning = ""; IsAnalyzing = isAnalysis;
             try { await action(cts.Token, gen); }
             catch (OperationCanceledException) { if (gen == generation) Status = "분석을 취소했어요. 다시 시작할 수 있어요."; }
             catch (Exception ex) { DiagnosticLog.Error("operation", ex); if (gen == generation) { Status = "작업을 완료하지 못했어요."; Warning = ex.Message; } }
@@ -149,7 +151,7 @@ public sealed class MainViewModel : Observable
                 if (gen == generation)
                 {
                     foreach (var track in Tracks.Where(t => t.Status == "분석 중")) track.Status = "취소됨";
-                    Busy = false; operationCts = null;
+                    IsAnalyzing = false; Busy = false; operationCts = null;
                 }
                 cts.Dispose();
             }

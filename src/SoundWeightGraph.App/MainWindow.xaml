@@ -1,23 +1,23 @@
 <Window x:Class="SoundWeightGraph.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sp="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
  Title="SoundWeight Graph" Width="1240" Height="820" MinWidth="960" MinHeight="640" Background="#F5F7FB" FontFamily="Segoe UI, Malgun Gothic" FontSize="13" AllowDrop="True" Drop="FileDropped" DragOver="FileDragOver" Closing="WindowClosing">
+ <Window.Resources><BooleanToVisibilityConverter x:Key="BusyVisibility"/></Window.Resources>
  <Grid Margin="24" Background="#F5F7FB">
-  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-  <Grid>
-   <StackPanel><TextBlock Text="SoundWeight Graph" FontSize="13" FontWeight="Bold" Foreground="#3470D8"/><TextBlock Text="{Binding Title}" FontSize="24" FontWeight="SemiBold" Margin="0,9,0,5" TextTrimming="CharacterEllipsis" MaxWidth="850" HorizontalAlignment="Left"/><TextBlock Text="{Binding Subtitle}" Foreground="#64748B"/></StackPanel>
-   <Button Content="오픈소스 고지" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ShowNotices"/>
-  </Grid>
-  <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,22,0,18">
-   <Button Content="MP4 파일 선택" Click="ChooseFile" Background="#DCEAFF" FontWeight="SemiBold"/>
-   <Button Content="분석 시작" Command="{Binding AnalyzeCommand}"/>
-   <Button Content="취소" Command="{Binding CancelCommand}"/>
-   <Button Content="캐시 지우기" Command="{Binding ClearCacheCommand}"/>
-   <TextBlock Text="파일을 창에 끌어다 놓아도 돼요" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#64748B"/>
-  </StackPanel>
-  <Grid Grid.Row="2">
+  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+  <DockPanel Margin="0,0,0,18" LastChildFill="False">
+   <Button DockPanel.Dock="Right" Content="오픈소스 고지" Margin="0" Click="ShowNotices"/>
+   <StackPanel Orientation="Horizontal">
+    <Button Content="MP4 파일 선택" Click="ChooseFile" Background="#DCEAFF" FontWeight="SemiBold"/>
+    <Button Content="분석 시작" Command="{Binding AnalyzeCommand}"/>
+    <Button Content="작업 취소" Command="{Binding CancelCommand}" Visibility="{Binding Busy, Converter={StaticResource BusyVisibility}}" ToolTip="진행 중인 파일 조사나 오디오 분석을 중단해요. 다시 시작할 수 있어요."/>
+    <Button Content="캐시 지우기" Command="{Binding ClearCacheCommand}"/>
+    <TextBlock Text="파일을 창에 끌어다 놓아도 돼요" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#64748B"/>
+   </StackPanel>
+  </DockPanel>
+  <Grid Grid.Row="1">
    <Grid.ColumnDefinitions><ColumnDefinition Width="310"/><ColumnDefinition Width="18"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
    <Border Background="White" CornerRadius="10" BorderBrush="#E2E8F0" BorderThickness="1" Padding="16">
     <DockPanel>
-     <StackPanel DockPanel.Dock="Top" Margin="0,0,0,12"><TextBlock Text="오디오 트랙" FontSize="17" FontWeight="SemiBold"/><TextBlock Text="사용 여부와 가중치를 조절해 봐" Foreground="#64748B" Margin="0,5,0,0"/></StackPanel>
+     <StackPanel DockPanel.Dock="Top" Margin="0,0,0,12"><TextBlock Text="오디오 트랙" FontSize="17" FontWeight="SemiBold"/></StackPanel>
      <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
       <ItemsControl ItemsSource="{Binding Tracks}">
        <ItemsControl.ItemTemplate><DataTemplate>
@@ -32,6 +32,11 @@
           <ComboBox SelectedValue="{Binding Kind}" SelectedValuePath="Tag" Margin="0,6,0,5" AutomationProperties.Name="트랙 역할">
            <ComboBoxItem Content="유형 미지정" Tag="Unknown"/><ComboBoxItem Content="개별 소스" Tag="Independent"/><ComboBoxItem Content="전체 믹스" Tag="Mix"/>
           </ComboBox>
+          <CheckBox IsChecked="{Binding Highlighted}" Margin="0,5,0,8"
+                    AutomationProperties.Name="트랙 영향력 강조"
+                    ToolTip="이 트랙의 가중치가 반영된 기여도를 투명도 40%로 겹쳐 표시해요. 종합 점수는 바뀌지 않아요. 사용 해제·가중치 0인 트랙은 표시하지 않아요.">
+           <StackPanel Orientation="Horizontal"><Ellipse Width="8" Height="8" Fill="{Binding HighlightColor}" Margin="0,0,6,0"/><TextBlock Text="트랙 영향력 강조"/></StackPanel>
+          </CheckBox>
           <TextBlock Text="{Binding Status}" FontSize="12" Foreground="#475569"/>
           <TextBlock Text="{Binding MixHint}" FontSize="11" Foreground="#986419" TextWrapping="Wrap" Margin="0,4,0,0"/>
          </StackPanel>
@@ -47,11 +52,16 @@
      <Grid><StackPanel><TextBlock Text="하이라이트 후보 점수" FontSize="17" FontWeight="SemiBold"/><TextBlock Text="소리 변화와 여러 트랙의 반응이 모이는 정도 · 0–100" Foreground="#64748B" Margin="0,5,0,0"/></StackPanel><Button Content="전체 보기" HorizontalAlignment="Right" VerticalAlignment="Top" Click="FitPlot"/></Grid>
      <sp:WpfPlot x:Name="Chart" Grid.Row="1" Margin="0,18,0,10" PreviewMouseMove="PlotMouseMove" PreviewMouseLeftButtonDown="PlotMouseDown" PreviewMouseLeftButtonUp="PlotMouseUp"/>
      <StackPanel Grid.Row="2"><TextBlock Text="{Binding Cursor}" FontFamily="Consolas, Malgun Gothic"/><StackPanel Orientation="Horizontal" Margin="0,10,0,0"><TextBlock Text="선택 시각" VerticalAlignment="Center" Margin="0,0,10,0"/><TextBox Text="{Binding SelectedTime, Mode=OneWay}" IsReadOnly="True" Width="145" Padding="8,6" FontFamily="Consolas"/><Button Content="시각 복사" Click="CopyTime" Margin="10,0,0,0"/></StackPanel></StackPanel>
-     <TextBlock Grid.Row="3" Text="휠로 가로 확대 · Shift+휠/드래그로 좌우 이동 · 클릭으로 시각 선택&#10;후보 점수는 장면의 재미나 편집 품질을 판단하지 않아요." TextWrapping="Wrap" Foreground="#64748B" FontSize="12" Margin="0,16,0,0"/>
+     <TextBlock Grid.Row="3" Text="휠로 가로 확대 · Shift+휠/드래그로 좌우 이동 · 클릭으로 시각 선택&#10;색상 선은 체크한 트랙의 가중 기여도 · 공동 반응 보너스는 종합 점수에만 반영" TextWrapping="Wrap" Foreground="#64748B" FontSize="12" Margin="0,16,0,0"/>
     </Grid>
    </Border>
   </Grid>
-  <StackPanel Grid.Row="3" Margin="0,18,0,0"><ProgressBar Value="{Binding Progress, Mode=OneWay}" Height="5" Maximum="100" Foreground="#3470D8"/><TextBlock Text="{Binding Status}" Margin="0,9,0,0"/><TextBlock Text="{Binding Warning}" Foreground="#A25912" TextWrapping="Wrap" Margin="0,4,0,0"/></StackPanel>
+  <StackPanel Grid.Row="2">
+   <ProgressBar x:Name="AnalysisProgress" Value="{Binding Progress, Mode=OneWay}" Visibility="{Binding IsAnalyzing, Converter={StaticResource BusyVisibility}}" Height="5" Maximum="100" Foreground="#3470D8" Margin="0,18,0,0" AutomationProperties.Name="분석 진행도"/>
+   <TextBlock Text="{Binding Warning}" Foreground="#A25912" TextWrapping="Wrap" Margin="0,8,0,0">
+    <TextBlock.Style><Style TargetType="TextBlock"><Style.Triggers><Trigger Property="Text" Value=""><Setter Property="Visibility" Value="Collapsed"/></Trigger></Style.Triggers></Style></TextBlock.Style>
+   </TextBlock>
+  </StackPanel>
  </Grid>
 </Window>
 

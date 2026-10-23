@@ -7,7 +7,7 @@
 
 - 루트 `LICENSE`: Apache Software Foundation의 Apache License 2.0 공식 원문.
 - 루트 `NOTICE`: 프로젝트명, 저작자, 원본 저장소 주소와 외부 구성요소 고지 위치.
-- 표시 이름은 SoundWeight Graph, 실행 파일과 코드 식별자는 SoundWeightGraph로 통일한다. README는 v0.1.0용 안내 문장과 라이선스 링크만 제공한다.
+- 표시 이름은 SoundWeight Graph, 실행 파일과 코드 식별자는 SoundWeightGraph로 통일한다. README는 v0.2.0용 안내 문장과 라이선스 링크만 제공한다.
 - NOTICE는 라이선스를 변경하는 추가 약관이 아니다. 메인 화면에 로고를 고정하거나 모든 광고에 이름을 표시하는 요구를 추가하지 않았다.
 
 Apache-2.0 제4조에 따라 배포 시 라이선스 사본, 수정 파일의 변경 표시, 적용되는 저작권·출처 고지 및 NOTICE의 출처 고지 보존이 필요하다.
@@ -47,7 +47,7 @@ FFmpeg 소스, 정확한 빌드 레시피, 해당 빌드 실행의 전체 의존
 `libdrm`은 현재 configure에서 비활성화되어 있으며 원본 소스는 캐시에 보존한다.
 
 [소스 보관 및 재빌드 안내](FFMPEG_SOURCE_STATUS.md)와 [캐시 목록](ffmpeg-source-cache-inventory.json)에 경로와 해시를 기록한다.
-같은 [v0.1.0 릴리스](https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.1.0)에 소스 키트와 캐시 3개 분할 파일을 제공한다.
+같은 [v0.2.0 릴리스](https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.2.0)에 소스 키트와 캐시 3개 분할 파일을 제공한다.
 원문 파일과 경로는 소스 키트의 `ffmpeg-dependency-notices.zip`으로 보존한다. 소스 자료는 EXE 안에 넣지 않는다.
 
 `SOUNDWEIGHTGRAPH_FFMPEG_DIR`에 절대 경로를 지정하면 수정한 ffmpeg.exe와 ffprobe.exe를 덮어쓰지 않고 사용한다.

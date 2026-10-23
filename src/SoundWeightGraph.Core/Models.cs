@@ -31,6 +31,8 @@ public sealed record ScoringOptions(double CoincidenceWindowSec = 3, double Smoo
 public sealed record ScoreSeries(double FrameDurationSec, double[] BaseScore, double[] Coincidence,
     double[] RawScore, double[] SmoothedScore)
 {
+    // Smoothed weighted shares of BaseScore, excluding the shared coincidence bonus.
+    public IReadOnlyDictionary<int, double[]> TrackContributions { get; init; } = new Dictionary<int, double[]>();
     public bool HasTracks => RawScore.Length > 0;
     public static ScoreSeries Empty { get; } = new(AnalysisFormat.FrameSeconds, [], [], [], []);
 }

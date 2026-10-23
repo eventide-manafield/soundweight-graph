@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "inspectedDate": "2026-10-23",
-  "depsSha256": "EB4B1744DE0CBDFAE8ED21B1D0B3D5E9D4E7B07A5F5D6B0228852C546977E73B",
+  "depsSha256": "08297BE77A810EE51C5B51FBF62E44A21B7958075740A1EE5FDC1AC26480D3C0",
   "lockSha256": "367122CF9BAF88069BB2B310E489056E304437FDFA2806035E7A29E32D527829",
   "packages": [
     {
@@ -880,7 +880,7 @@
     ],
     "correspondingSourceBundleComplete": true,
     "sourceArchiveSha256": "F89C6C43969D92C8B95CB459A90FBAFBC743D3D3CC4D16C610317F9CEEF922F8",
-    "sourceRelease": "https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.1.0"
+    "sourceRelease": "https://github.com/eventide-manafield/soundweight-graph/releases/tag/v0.2.0"
   },
   "scope": "Inventory and collected notices; not a legal certification."
 }
